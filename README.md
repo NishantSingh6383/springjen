@@ -1,22 +1,28 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.example.yourprojectname.User;
+import com.example.yourprojectname.UserRepository;
 
 
-@Entity
-public class User {
-   
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
-   
-   private String username;
-   
-   private String email;
-   
-   private String password;
+@Service
+public class UserService {
 
-   // Constructor, getters, and setters
+   @Autowired
+   private UserRepository userRepository;
+   
+   // Implement your business logic and data manipulation operations here
+   
 }
 
+
+
+
+@Service
+public class MedicineService {
+
+   @Autowired
+   private MedicineRepository medicineRepository;
+   
+   // Implement your business logic and data manipulation operations here
+   
+}
