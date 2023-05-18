@@ -1,20 +1,22 @@
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-<dependencies>
-   <!-- Spring Web -->
-   <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-   </dependency>
+
+@Entity
+public class User {
    
-   <!-- Spring Data JPA -->
-   <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-data-jpa</artifactId>
-   </dependency>
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private Long id;
    
-   <!-- MySQL Connector -->
-   <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-   </dependency>
-</dependencies>
+   private String username;
+   
+   private String email;
+   
+   private String password;
+
+   // Constructor, getters, and setters
+}
+
