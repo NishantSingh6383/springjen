@@ -1,16 +1,6 @@
-@RestController
-@RequestMapping("/users")
-public class UserController {
-
-   @Autowired
-   private UserService userService;
-
-   @PostMapping("/register")
-   public User registerUser(@RequestBody User user) {
-      // Call the registerUser method from the userService
-      return userService.registerUser(user);
+@PostMapping("/login")
+   public ResponseEntity<String> loginUser(@RequestBody User user) {
+      // Implement the logic for user login
+      // Call the corresponding UserService method to authenticate the user
+      // Return an appropriate response, such as a success message or an error message
    }
-
-   // Other API endpoints
-   
-}
