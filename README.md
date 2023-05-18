@@ -1,33 +1,20 @@
-@RestController
-@RequestMapping("/users")
-public class UserController {
+@Service
+public class UserService {
 
    @Autowired
-   private UserService userService;
-
-   // Other API endpoints
+   private UserRepository userRepository;
    
-   @GetMapping("/{userId}/profile")
-   public ResponseEntity<User> getUserProfile(@PathVariable Long userId) {
-      User user = userService.getUserById(userId);
-      if (user != null) {
-         return ResponseEntity.ok(user);
-      } else {
-         return ResponseEntity.notFound().build();
-      }
+   public User getUserById(Long userId) {
+      // Implement logic to retrieve a user by their ID
+      // Use userRepository.findById(userId) to fetch the user from the database
+      // Return the user object if found, or null if not found
    }
-
-   @PutMapping("/{userId}/profile")
-   public ResponseEntity<User> updateUserProfile(@PathVariable Long userId, @RequestBody User updatedUser) {
-      User user = userService.getUserById(userId);
-      if (user != null) {
-         user.setName(updatedUser.getName());
-         user.setAddress(updatedUser.getAddress());
-         // Set other profile properties
-         User savedUser = userService.saveUser(user);
-         return ResponseEntity.ok(savedUser);
-      } else {
-         return ResponseEntity.notFound().build();
-      }
+   
+   public User saveUser(User user) {
+      // Implement logic to save/update a user
+      // Use userRepository.save(user) to persist the user in the database
+      // Return the saved user object
    }
+   
+   // Other methods in UserService
 }
