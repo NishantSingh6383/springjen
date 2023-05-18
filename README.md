@@ -50,4 +50,20 @@ public class UserService {
       }
    }
 
+	
+	
+	
+	
+	
+	
+	@PostMapping("/register")
+public ResponseEntity<User> registerUser(@RequestBody User user) {
+   User registeredUser = userService.registerUser(user);
+   if (registeredUser != null) {
+      return ResponseEntity.ok(registeredUser);
+   } else {
+      return ResponseEntity.badRequest().body(null);
+   }
+}
+
    
