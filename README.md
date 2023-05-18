@@ -1,7 +1,16 @@
-@PostMapping("/register")
-public ResponseEntity<String> registerUser(@RequestBody User user) {
-   // Implement the logic for user registration
-   // Call the corresponding UserService method to register the user
-   userService.registerUser(user);
-   return ResponseEntity.ok("User registered successfully");
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+   @Autowired
+   private UserService userService;
+
+   @PostMapping("/register")
+   public User registerUser(@RequestBody User user) {
+      // Call the registerUser method from the userService
+      return userService.registerUser(user);
+   }
+
+   // Other API endpoints
+   
 }
